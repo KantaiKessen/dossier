@@ -12,33 +12,43 @@ import java.util.Scanner;
  * @version (a version number or a date)
  */
 public class Display {
-    static List<String> user = new ArrayList<String>();
-    static List<String> pass = new ArrayList<String>();
-
+    static List<String> user = new ArrayList<>();
+    static List<String> pass = new ArrayList<>();
+    int lines = 0;
     public static void main(String[] args) {
         try {
-            FTPDownloader downloader = new FTPDownloader("niokiryth.asuscomm.com", "dbGuest", "dbGuest");
-            downloader.downloadFile("./etc/users", "./etc/users");
+            FTPDownloader downloader = new FTPDownloader("niokiryth.asuscomm.com", "dbAccess", "dbAccessPassword!");
+            downloader.downloadFile("/etc/users", "users");
             downloader.disconnect();
+
+            int option = JOptionPane.showConfirmDialog(null, "Press yes for Login, no for Sign Up");
+            if (option == 0) {
+                login();
+            } else {
+                signup();
+            }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        try {
-            Scanner infile = new Scanner(new File("./etc/users"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String option = JOptionPane.showInputDialog("LOGIN or SIGNUP?");
-        boolean Login_or_Signup = option.equalsIgnoreCase("LOGIN");
-        if (Login_or_Signup) {
-            login();
-        } else {
-            signup();
         }
     }
 
     public static void login() {
+        int fileLength = 0;
         try {
+            Scanner countScanner = new Scanner(new File("users"));
+            while(countScanner.hasNext()){
+                fileLength++;
+                countScanner.next();
+            }
+            countScanner.close();
+            Scanner infile = new Scanner(new File("users"));
+            String username = JOptionPane.showInputDialog("Enter username: ");
+            for(int i = 0; i < fileLength; i++) {
+                if()
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
             String username = JOptionPane.showInputDialog("Enter username: ");
             if (usernameVerification(username)) {
                 int index = 0;
@@ -76,13 +86,6 @@ public class Display {
         login();
     }
 
-    public static boolean usernameVerification(String name) {
-        for (String s : user) {
-            if (s.equals(name))
-                return true;
-        }
-        return false;
-    }
 
     public static void passwordVerification(String p, int ind) {
         if (!pass.get(ind).equals(p)) {
