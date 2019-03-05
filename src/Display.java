@@ -8,21 +8,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-
 /**
- * Write a description of class Display here.
+ *  The display is the centerpiece of the application. It displays JavaFX windows and has the user interact with it.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author  Kevin Liu
+ * @version 0.0.1
  */
 public class Display extends Application {
-    private Button loginButton;
-    private Button signUpButton;
+    private Button loginButton, signUpButton;
     private Label signInLabel;
     private Stage window;
-    private Scene signInScene;
-    private Scene loginScene;
+    private Scene signInScene, loginScene;
     Scene registerScene;
 
     public static void main(String[] args) {
