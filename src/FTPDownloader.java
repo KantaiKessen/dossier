@@ -3,8 +3,8 @@ import org.apache.commons.net.ftp.*;
 
 import java.io.*;
 
-public class FTPDownloader {
-    FTPClient ftp = null;
+class FTPDownloader {
+    private FTPClient ftp = null;
     public FTPDownloader(String host, String user, String pwd) throws Exception{
         ftp = new FTPClient();
         ftp.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));

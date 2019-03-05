@@ -2,9 +2,9 @@ import org.apache.commons.net.ftp.*;
 import org.apache.commons.net.PrintCommandListener;
 import java.io.*;
 
-public class FTPUploader {
+class FTPUploader {
 
-    FTPClient ftp = null;
+    private FTPClient ftp = null;
 
     public FTPUploader(String host, String user, String pwd) throws Exception {
         ftp = new FTPClient();

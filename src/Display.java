@@ -1,8 +1,13 @@
-import javax.swing.*;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 
 /**
@@ -11,87 +16,93 @@ import java.util.Scanner;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Display {
-    static List<String> user = new ArrayList<>();
-    static List<String> pass = new ArrayList<>();
-    int lines = 0;
+public class Display extends Application {
+    private Button loginButton;
+    private Button signUpButton;
+    private Label signInLabel;
+    private Stage window;
+    private Scene signInScene;
+    private Scene loginScene;
+    Scene registerScene;
+
     public static void main(String[] args) {
-        try {
-            FTPDownloader downloader = new FTPDownloader("niokiryth.asuscomm.com", "dbAccess", "dbAccessPassword!");
-            downloader.downloadFile("/etc/users", "users");
-            downloader.disconnect();
-
-            int option = JOptionPane.showConfirmDialog(null, "Press yes for Login, no for Sign Up");
-            if (option == 0) {
-                login();
-            } else {
-                signup();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        launch(args);
     }
 
-    public static void login() {
-        int fileLength = 0;
-        try {
-            Scanner countScanner = new Scanner(new File("users"));
-            while(countScanner.hasNext()){
-                fileLength++;
-                countScanner.next();
-            }
-            countScanner.close();
-            Scanner infile = new Scanner(new File("users"));
-            String username = JOptionPane.showInputDialog("Enter username: ");
-            for(int i = 0; i < fileLength; i++) {
-                if()
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-            String username = JOptionPane.showInputDialog("Enter username: ");
-            if (usernameVerification(username)) {
-                int index = 0;
-                for (int j = 0; j < user.size(); j++) {
-                    if (user.get(j).equalsIgnoreCase(username)) {
-                        index = j;
-                    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        window = primaryStage;
+        window.setTitle("signIn");
+        window.setOnCloseRequest(e -> {
+            e.consume();
+            closeProgram();
+        });
+        signInLabel = new Label("Welcome to Study Helper");
+
+        loginButton = new Button("Login");
+        loginButton.setOnAction(e -> {
+            window.setScene(loginScene());
+            window.show();
+        });
+
+        signUpButton = new Button("Sign Up");
+        signUpButton.setOnAction(e -> System.out.print('y'));
+
+        VBox signInLayout = new VBox(20);
+        signInLayout.setAlignment(Pos.CENTER);
+        signInLayout.getChildren().addAll(signInLabel, loginButton, signUpButton);
+
+        signInScene = new Scene(signInLayout, 300, 250);
+        window.setScene(signInScene);
+        window.show();
+    }
+
+    private void closeProgram() {
+        boolean answer = ConfirmBox.display("Close Program",
+                "Are you sure you want to close this program?");
+        if (answer)
+            window.close();
+    }
+
+    private Scene loginScene() {
+        if (loginScene == null) {
+            Label uNameLabel = new Label("Username: ");
+            TextField uNameInput = new TextField();
+            uNameInput.setPromptText("Username");
+            Label passwdLabel = new Label("Password: ");
+            TextField passwdInput = new TextField();
+            passwdInput.setPromptText("Password");
+            Button loginButton = new Button("Login");
+            loginButton.setOnAction(e -> {
+                try {
+                    FTPDownloader ftp = new FTPDownloader(
+                            "niokiryth.asuscomm.com", "dbAccessz", "dbAccessPassword!");
+                    ftp.downloadFile("/etc/users", "./users");
                 }
-                String password = JOptionPane.showInputDialog("Enter password: ");
-                passwordVerification(password, index);
-            } else {
-                JOptionPane.showInputDialog("Sorry, that username does not exist. Press cancel.");
-            }
-        } catch (NullPointerException e) {
-            System.exit(0);
+                catch(Exception ex){
+                    AlertBox.display("Database is down", "The database is down and cannot be accessed." +
+                            "Please call the officer of the deck in any case not covered by instructions");
+                }
+            });
+            Button backButton = new Button("Back");
+            backButton.setOnAction(e -> {
+                window.setScene(signInScene);
+                window.show();
+            });
+            GridPane grid = new GridPane();
+            grid.setPadding(new Insets(10, 10, 10, 10));
+            grid.setVgap(10);
+            grid.setHgap(110);
+            grid.setConstraints(uNameLabel, 0, 0);
+            grid.setConstraints(uNameInput, 1, 0);
+            grid.setConstraints(passwdLabel, 0, 1);
+            grid.setConstraints(passwdInput, 1, 1);
+            grid.setConstraints(backButton, 0, 3);
+            grid.setConstraints(loginButton, 1, 3);
+            grid.getChildren().addAll(uNameLabel, uNameInput, passwdLabel, passwdInput, loginButton, backButton);
+            loginScene = new Scene(grid, 400, 300);
         }
-    }
-
-    public static void signup() {
-        boolean in = false;
-        String u = JOptionPane.showInputDialog("Enter username");
-        do {
-            if (in) {
-                u = JOptionPane.showInputDialog("That username already exists. Choose a different one.");
-            }
-            in = false;
-            for (String s : user) {
-                if (s.equals(u))
-                    in = true;
-            }
-        } while (in);
-        user.add(u);
-        pass.add(JOptionPane.showInputDialog("Choose a password."));
-        JOptionPane.showInputDialog("Your account has been created. You will now be asked to log in.");
-        login();
-    }
-
-
-    public static void passwordVerification(String p, int ind) {
-        if (!pass.get(ind).equals(p)) {
-            JOptionPane.showInputDialog("Incorrect password. Press cancel.");
-        } else {
-            //run program here
-        }
+        return loginScene;
     }
 }
