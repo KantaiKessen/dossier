@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0"
-      style="-fx-background-color: #f9baff;" xmlns="http://javafx.com/javafx/8.0.121"
-      xmlns:fx="http://javafx.com/fxml/1" fx:id="pane" fx:controller="TutorController">
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0"
+      prefWidth="600.0" style="-fx-background-color: #f9baff;"
+      xmlns="http://javafx.com/javafx/8.0.121" fx:id="pane" fx:controller="TutorController">
     <children>
         <Text layoutX="36.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I AM A... TUTOR">
             <font>
@@ -72,7 +72,7 @@
             </items>
         </ChoiceBox>
         <Button fx:id="backButton" onAction="#handleButtons" layoutX="26.0" layoutY="361.0" mnemonicParsing="false"
-                style="-fx-background-color: #545454;" text="Back" textFill="WHITE" />
+                style="-fx-background-color: #545454;" text="Back" textFill="WHITE"/>
         <Button fx:id="checkButton" onAction="#handleButtons" layoutX="408.0" layoutY="286.0" mnemonicParsing="false"
                 style="-fx-background-color: #545454;" text="check matches" textFill="WHITE"/>
     </children>

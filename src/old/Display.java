@@ -1,3 +1,5 @@
+package old;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -100,7 +102,7 @@ public class Display extends Application {
         try {
             FTPDownloader ftp = new FTPDownloader(
                     "niokiryth.asuscomm.com", "dbAccess", "dbAccessPassword!");
-            ftp.downloadFile("/etc/users", "./users");
+            ftp.downloadFile("/etc/users", "users");
             Scanner scanner = new Scanner(new File("users"));
             while(scanner.hasNext()){
                 numLines++;

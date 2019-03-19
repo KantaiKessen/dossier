@@ -6,8 +6,18 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     Stage primaryStage;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("signIn");
+        primaryStage.setOnCloseRequest(e -> {
+            e.consume();
+            closeProgram();
+        });
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("welcolm.fxml"));
         primaryStage.setTitle("PTC");
@@ -15,14 +25,16 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
+    private void closeProgram() {
+        boolean answer = ConfirmBox.display("Close Program",
+                "       Are you sure you want to close this program?        ");
+        if (answer)
+            primaryStage.close();
     }
 
-    public void changeScene(String fxml) throws Exception{
-            Parent pane = FXMLLoader.load(
-                    getClass().getResource(fxml));
-            primaryStage.getScene().setRoot(pane);
+    public void changeScene(String fxml) throws Exception {
+        Parent pane = FXMLLoader.load(
+                getClass().getResource(fxml));
+        primaryStage.getScene().setRoot(pane);
     }
 }
