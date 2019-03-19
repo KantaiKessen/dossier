@@ -58,7 +58,19 @@
         <TextArea layoutX="102.0" layoutY="210.0" prefHeight="88.0" prefWidth="149.0"/>
         <Button layoutX="400.0" layoutY="254.0" mnemonicParsing="false" style="-fx-background-color: #545454;"
                 text="SUBMIT REQUEST" textFill="WHITE"/>
-        <ChoiceBox fx:id="subjectChoice" layoutX="101.0" layoutY="173.0" prefWidth="150.0"/>
+        <ChoiceBox fx:id="subjectChoice" layoutX="102.0" layoutY="173.0" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Computer Science"/>
+                    <String fx:value="English"/>
+                    <String fx:value="Mathematics"/>
+                    <String fx:value="Science"/>
+                    <String fx:value="Social Science"/>
+                    <String fx:value="Visual and Performing Arts"/>
+                    <String fx:value="World Language"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
         <Button fx:id="backButton" layoutX="26.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleButtons"
                 style="-fx-background-color: #545454;" text="Back" textFill="WHITE"/>
         <Button fx:id="checkButton" layoutX="408.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleButtons"
