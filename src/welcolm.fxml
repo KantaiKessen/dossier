@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0"
+      prefWidth="600.0" style="-fx-background-color: #bbffff;"
+      xmlns="http://javafx.com/javafx/8.0.121" fx:controller="WelcomeController">
+    <children>
+        <Button fx:id="teacherButton" layoutX="113.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleButtons"
+                style="-fx-background-color: orange;" text="TEACHER" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="16.0"/>
+            </font>
+        </Button>
+        <Button fx:id="studentButton" defaultButton="true" layoutX="258.0" layoutY="163.0" mnemonicParsing="false"
+                onAction="#handleButtons" style="-fx-background-color: pink;" text="STUDENT" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="16.0"/>
+            </font>
+        </Button>
+        <Button fx:id="tutorButton" layoutX="413.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleButtons"
+                style="-fx-background-color: violet;" text="TUTOR" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="16.0"/>
+            </font>
+        </Button>
+        <Text layoutX="201.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- WELCOME -">
+            <font>
+                <Font name="Century" size="29.0"/>
+            </font>
+        </Text>
+        <Text layoutX="265.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I am a...">
+            <font>
+                <Font name="Century" size="18.0"/>
+            </font>
+        </Text>
+        <Text layoutX="420.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PEER TUTORING">
+            <font>
+                <Font name="MS Gothic" size="24.0"/>
+            </font>
+        </Text>
+        <Circle fill="#a1731e" layoutX="88.0" layoutY="327.0" radius="50.0" stroke="#a1731e" strokeType="INSIDE"/>
+        <Circle fill="#a1731e" layoutX="48.0" layoutY="294.0" radius="17.0" stroke="#a1731e" strokeType="INSIDE"/>
+        <Circle fill="#a1731e" layoutX="130.0" layoutY="294.0" radius="17.0" stroke="#a1731e" strokeType="INSIDE"/>
+        <Circle layoutX="52.0" layoutY="327.0" radius="4.0" stroke="BLACK" strokeType="INSIDE"/>
+        <Circle layoutX="117.0" layoutY="327.0" radius="4.0" stroke="BLACK" strokeType="INSIDE"/>
+        <Circle fill="#d6a859" layoutX="80.0" layoutY="339.0" radius="12.0" stroke="#d6a859" strokeType="INSIDE"/>
+        <Circle layoutX="77.0" layoutY="335.0" radius="4.0" stroke="BLACK" strokeType="INSIDE"/>
+    </children>
+</Pane>

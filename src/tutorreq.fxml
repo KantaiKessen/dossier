@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0"
+      style="-fx-background-color: #f9baff;" xmlns="http://javafx.com/javafx/8.0.121"
+      xmlns:fx="http://javafx.com/fxml/1" fx:id="pane" fx:controller="TutorController">
+    <children>
+        <Text layoutX="36.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I AM A... TUTOR">
+            <font>
+                <Font name="Century" size="24.0"/>
+            </font>
+        </Text>
+        <TextField fx:id="firstNameField" layoutX="102.0" layoutY="77.0"/>
+        <Text layoutX="36.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="first name"/>
+        <Text layoutX="36.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="last name"/>
+        <TextField fx:id="lastNameField" layoutX="102.0" layoutY="109.0"/>
+        <TextField fx:id="gradeField" layoutX="102.0" layoutY="140.0" promptText="9-12"/>
+        <Text layoutX="36.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="grade"/>
+        <Text layoutX="36.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="subject"/>
+        <Text layoutX="35.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="additional preferences"
+              wrappingWidth="62.203125"/>
+        <Text layoutX="322.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="times available"/>
+        <Text layoutX="461.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to"/>
+        <ChoiceBox fx:id="startTimeChoice" layoutX="408.0" layoutY="77.0" prefHeight="25.0" prefWidth="44.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1500"/>
+                    <String fx:value="1530"/>
+                    <String fx:value="1600"/>
+                    <String fx:value="1630"/>
+                    <String fx:value="1700"/>
+                    <String fx:value="1730"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <ChoiceBox fx:id="endTimeChoice" layoutX="480.0" layoutY="77.0" prefHeight="25.0" prefWidth="44.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1530"/>
+                    <String fx:value="1600"/>
+                    <String fx:value="1630"/>
+                    <String fx:value="1700"/>
+                    <String fx:value="1730"/>
+                    <String fx:value="1800"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <CheckBox fx:id="friday" layoutX="407.0" layoutY="210.0" mnemonicParsing="false" text="friday"/>
+        <CheckBox fx:id="thursday" layoutX="407.0" layoutY="185.0" mnemonicParsing="false" text="thursday"/>
+        <CheckBox fx:id="wednesday" layoutX="407.0" layoutY="162.0" mnemonicParsing="false" text="wednesday"/>
+        <CheckBox fx:id="tuesday" layoutX="407.0" layoutY="138.0" mnemonicParsing="false" text="tuesday"/>
+        <CheckBox fx:id="monday" layoutX="407.0" layoutY="114.0" mnemonicParsing="false" text="monday"/>
+        <Text layoutX="321.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="days available"/>
+        <TextArea fx:id="addComms" layoutX="102.0" layoutY="210.0" prefHeight="88.0" prefWidth="149.0"/>
+        <Button fx:id="submitButton" layoutX="400.0" layoutY="254.0" mnemonicParsing="false"
+                style="-fx-background-color: #545454;" text="SUBMIT REQUEST" textFill="WHITE"/>
+        <ChoiceBox fx:id="subjectChoice" layoutX="102.0" layoutY="173.0" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Computer Science"/>
+                    <String fx:value="English"/>
+                    <String fx:value="Mathematics"/>
+                    <String fx:value="Science"/>
+                    <String fx:value="Social Science"/>
+                    <String fx:value="Visual and Performing Arts"/>
+                    <String fx:value="World Language"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Button fx:id="backButton" onAction="#handleButtons" layoutX="26.0" layoutY="361.0" mnemonicParsing="false"
+                style="-fx-background-color: #545454;" text="Back" textFill="WHITE" />
+        <Button fx:id="checkButton" onAction="#handleButtons" layoutX="408.0" layoutY="286.0" mnemonicParsing="false"
+                style="-fx-background-color: #545454;" text="check matches" textFill="WHITE"/>
+    </children>
+</Pane>
