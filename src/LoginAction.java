@@ -7,16 +7,13 @@ public class LoginAction {
         int numLines = 0;
 
         try {
-            FTPDownloader ftp = new FTPDownloader(
-                    "niokiryth.asuscomm.com", "dbAccess", "dbAccessPassword!");
-            ftp.downloadFile("/etc/users", "users");
-            Scanner scanner = new Scanner(new File("users"));
+            Scanner scanner = new Scanner(new File("teacher"));
             while (scanner.hasNext()) {
                 numLines++;
                 scanner.next();
             }
             scanner.close();
-            scanner = new Scanner(new File("users"));
+            scanner = new Scanner(new File("teacher"));
             String[][] userData = new String[2][];
             userData[0] = new String[numLines];
             userData[1] = new String[numLines];
@@ -28,18 +25,28 @@ public class LoginAction {
             if (!isInUserFile(name, userData)) {
                 AlertBox.display("User not found", "The user does not exist");
             }
+            else{
+                if (!isInPasswordFile(SecurityFeatures.getMD5(pass),userData)){
+                    AlertBox.display("Incorret password", "The user does not exist");
+                }
+            }
         } catch (FileNotFoundException eb) {
             eb.printStackTrace();
-        } catch (Exception ea) {
-            ea.printStackTrace();
-            AlertBox.display("Database is down", "The database is down and cannot be accessed." +
-                    "Please call the officer of the deck in any case not covered by instructions");
         }
     }
 
     private boolean isInUserFile(String name, String[][] a) {
         for (String x : a[0]) {
             if (x.equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isInPasswordFile(String hash, String[][] a) {
+        for (String x : a[1]) {
+            if (x.equals(hash)) {
                 return true;
             }
         }
