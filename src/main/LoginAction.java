@@ -1,9 +1,11 @@
+package main;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class LoginAction {
-    public void loginAction(String name, String pass) {
+    public static boolean loginAction(String name, String pass) {
         int numLines = 0;
 
         try {
@@ -29,13 +31,15 @@ public class LoginAction {
                 if (!isInPasswordFile(SecurityFeatures.getMD5(pass),userData)){
                     AlertBox.display("Incorret password", "The user does not exist");
                 }
+                else {return true;}
             }
         } catch (FileNotFoundException eb) {
             eb.printStackTrace();
         }
+        return false;
     }
 
-    private boolean isInUserFile(String name, String[][] a) {
+    private static boolean isInUserFile(String name, String[][] a) {
         for (String x : a[0]) {
             if (x.equals(name)) {
                 return true;
@@ -44,7 +48,7 @@ public class LoginAction {
         return false;
     }
 
-    private boolean isInPasswordFile(String hash, String[][] a) {
+    private static boolean isInPasswordFile(String hash, String[][] a) {
         for (String x : a[1]) {
             if (x.equals(hash)) {
                 return true;

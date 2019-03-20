@@ -1,3 +1,5 @@
+package main;
+
 class SecurityFeatures {
     public static String getMD5(String md5) {
         try {

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="teacherLogPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffe0b5;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeacherController">
+<Pane fx:id="teacherLogPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffe0b5;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TeacherController">
     <children>
         <Text layoutX="185.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I AM A... TEACHER">
             <font>
@@ -18,13 +18,14 @@
         <TextField fx:id="usernameBox" layoutX="94.0" layoutY="120.0" />
         <Text layoutX="32.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" />
         <Text layoutX="32.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" />
-        <Button fx:id="loginButton" layoutX="74.0" layoutY="206.0" mnemonicParsing="false" style="-fx-background-color: #545454;" text="LOG IN" textFill="WHITE" />
-        <Button fx:id="signUpButton" layoutX="348.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: #545454;" text="SIGN UP" textFill="WHITE" />
+        <Button fx:id="loginButton" layoutX="74.0" layoutY="206.0" mnemonicParsing="false" onAction="#controlButtons" style="-fx-background-color: #545454;" text="LOG IN" textFill="WHITE" />
+        <Button fx:id="signUpButton" layoutX="348.0" layoutY="241.0" mnemonicParsing="false" onAction="#controlButtons" style="-fx-background-color: #545454;" text="SIGN UP" textFill="WHITE" />
         <Text layoutX="309.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" />
         <Text layoutX="309.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" />
         <TextField fx:id="usernameSignBox" layoutX="371.0" layoutY="117.0" />
         <PasswordField fx:id="passwordSignBox" layoutX="371.0" layoutY="157.0" />
         <TextField fx:id="emailSignBox" layoutX="371.0" layoutY="194.0" />
         <Text layoutX="309.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
+      <Button fx:id="backButton" layoutX="17.0" layoutY="361.0" mnemonicParsing="false" onAction="#controlButtons" style="-fx-background-color: #545454;" text="Back" textFill="WHITE" />
     </children>
 </Pane>

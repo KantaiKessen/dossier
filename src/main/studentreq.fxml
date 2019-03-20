@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-      style="-fx-background-color: #ffc6e9;" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="StudentController">
+      style="-fx-background-color: #ffc6e9;" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="main.StudentController">
     <children>
         <Text layoutX="36.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I AM A... STUDENT">
             <font>
@@ -56,18 +56,18 @@
         <CheckBox fx:id="monday" layoutX="407.0" layoutY="114.0" mnemonicParsing="false" text="monday"/>
         <Text layoutX="321.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="days available"/>
         <TextArea layoutX="102.0" layoutY="210.0" prefHeight="88.0" prefWidth="149.0"/>
-        <Button layoutX="400.0" layoutY="254.0" mnemonicParsing="false" style="-fx-background-color: #545454;"
+        <Button fx:id="submitButton" layoutX="400.0" onAction="#handleButtons" layoutY="254.0" mnemonicParsing="false" style="-fx-background-color: #545454;"
                 text="SUBMIT REQUEST" textFill="WHITE"/>
         <ChoiceBox fx:id="subjectChoice" layoutX="102.0" layoutY="173.0" prefWidth="150.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Computer Science"/>
+                    <String fx:value="Computer_Science"/>
                     <String fx:value="English"/>
                     <String fx:value="Mathematics"/>
                     <String fx:value="Science"/>
                     <String fx:value="Social Science"/>
-                    <String fx:value="Visual and Performing Arts"/>
-                    <String fx:value="World Language"/>
+                    <String fx:value="Visual_and_Performing Arts"/>
+                    <String fx:value="World_Language"/>
                 </FXCollections>
             </items>
         </ChoiceBox>

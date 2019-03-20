@@ -1,4 +1,4 @@
-import java.io.IOException;
+package main;
 
 public class FTPActions {
     public static void downloadFiles(){
@@ -17,10 +17,10 @@ public class FTPActions {
     public static void uploadFiles(){
         try {
             FTPUploader ftpUp = new FTPUploader("niokiryth.asuscomm.com", "dbAccess", "dbAccessPassword!");
-            ftpUp.uploadFile("./teacher", "teacher", "/etc");
-            ftpUp.uploadFile("./student", "student", "/etc");
-            ftpUp.uploadFile("./tutor", "tutor", "/etc");
-            ftpUp.uploadFile("./match", "match", "/etc");
+            ftpUp.uploadFile("./teacher", "teacher", "/etc/");
+            ftpUp.uploadFile("./student", "student", "/etc/");
+            ftpUp.uploadFile("./tutor", "tutor", "/etc/");
+            ftpUp.uploadFile("./match", "match", "/etc/");
             ftpUp.disconnect();
         }catch (Exception e){
             AlertBox.display("FTP ERROR", "The database is down. Please try again later");
